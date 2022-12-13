@@ -1,0 +1,70 @@
+page {
+    height: 100%;
+}
+
+.cates {
+    height: 100%;
+
+    .cates_container {
+        /*视图的高-头部搜索框的高, 底部不用管
+        less 使用calc要注意, 但是我们原样输出, 而不是计算*/
+        /*height: calc(100vh - 90rpx);*/
+        height: ~'calc( 100vh - 90rpx )';
+        display: flex;
+
+        .left_menu {
+            /*伸缩盒子的子项 高度100% flex*/
+            /* 添加的内容*/
+            flex: 2;
+
+            .menu_item {
+                height: 100rpx;//这里调整宽度
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 30rpx;
+            }
+            .active{
+                color: var(--themeColor);
+                border-left: 5rpx solid currentColor//左边框 字体颜色
+            }
+        }
+
+        /* 添加的内容*/
+        /*伸缩盒子的子项 高度100% flex*/
+        .right_content {
+            flex: 5;
+            
+            .goods_group {
+                .goods_title {
+                    height: 80rpx;//表示字体和下面的距离
+                    display: flex;
+                    justify-content: center;//js 字体居中
+                    align-items: start;//ai 垂直
+                    .delimiter{
+                        color: #cccccc;
+                        padding: 10rpx;
+                        /*间隔*/
+                    }
+                }
+                
+                .goods_list {
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    /*换行效果*/
+                    navigator {
+                        width: 33.33%;
+                        text-align: center;//navigato的字体居中
+                        image {
+                            width: 50%;//缩小图片一半, 用height就不会缩小
+                        }
+
+                        .goods_name {}
+                    }
+                }
+
+            }
+        }
+    }
+}

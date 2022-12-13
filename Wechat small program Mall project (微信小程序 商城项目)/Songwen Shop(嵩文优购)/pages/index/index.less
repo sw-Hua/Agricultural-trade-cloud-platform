@@ -1,0 +1,66 @@
+.index_swipper {
+  swiper {
+    width: 750 rpx;
+    height: 340 rpx;
+
+    image {
+      width: 100%;
+    }
+  }
+}
+
+.index_cate {
+  display: flex;
+
+  navigator {
+    padding: 20rpx;
+    flex: 1;
+
+    image {
+      // 父元素多宽, 我也多宽
+      width: 100%;
+    }
+  }
+}
+
+.index_floor {
+  .floor_group {
+    .floor_title {
+      padding: 10rpx 0;
+      image {
+        width: 100%;
+      }
+    }
+
+    .floor_list {
+      //清除浮动
+
+      navigator {
+        float: left; //左浮动, 让他们在一行上放
+        width: 33.33%; //宽都只占总屏幕的33.33%
+
+        /*后四个超链接, 后几个默认加几*/
+        &:nth-last-child(-n+4){
+          /*原图的宽高 232 * 386*/
+          // 232 / 386 = 33.33vw / height
+          	// 第一张图片的高度: 33.33vw * 386 / 232;
+         // 第二张图片的高度是第一张的一半
+         //左边的留白
+          height: 33.33vw * 386 / 232/2;
+          border-left: 10px solid #fff;
+        }
+        /*二三这两个超链接*/
+        //右边的留白
+        &:nth-child(2),
+        &:nth-child(3){
+          border-bottom: 10px solid #fff;
+        }
+
+        image {
+          width: 100%; //宽100% 继承父元素的宽度
+          height: 100%; //高100% 继承父元素的高度
+        }
+      }
+    }
+  }
+}
